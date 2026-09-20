@@ -1,0 +1,25 @@
+{
+  "name": "creex-digital",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Creex Digital — social media marketing & graphic design studio website",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "next": "^16.3.5",
+    "nodemailer": "^10.0.10",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@types/node": "^24",
+    "@types/nodemailer": "^7",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "typescript": "^5"
+  }
+}

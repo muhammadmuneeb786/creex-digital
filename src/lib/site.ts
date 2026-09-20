@@ -2,12 +2,26 @@
  * Site-wide content and settings. Edit here — every page reads from this file.
  */
 
+/**
+ * Public site URL. Priority: NEXT_PUBLIC_SITE_URL → Vercel's production domain → fallback.
+ * Tolerates values typed without a protocol or with a trailing slash.
+ */
+function resolveSiteUrl() {
+  const raw = process.env.NEXT_PUBLIC_SITE_URL || process.env.VERCEL_PROJECT_PRODUCTION_URL || "https://www.creexdigital.com";
+  const withProtocol = /^https?:\/\//i.test(raw) ? raw : `https://${raw}`;
+  try {
+    return new URL(withProtocol).origin;
+  } catch {
+    return "https://www.creexdigital.com";
+  }
+}
+
 export const SITE = {
   name: "Creex Digital",
   tagline: "Social media marketing & graphic design studio",
   description:
     "Creex Digital plans, designs and manages social media for brands: designed posts, reels, ads management, monthly planners and reporting. Packages from Rs. 35k/month.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.creexdigital.com",
+  url: resolveSiteUrl(),
 
   // TODO: replace with the studio's real contact details
   email: "hello@creexdigital.com",
